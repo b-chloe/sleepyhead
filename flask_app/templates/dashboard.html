@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body style="background: rgb(69,44,99);
+background: linear-gradient(90deg, rgba(69,44,99,1) 0%, rgba(120,94,120,1) 50%, rgba(158,125,158,1) 100%);">
+    <div style="margin: 0 auto; font-family:Arial, Helvetica, sans-serif">
+        <nav style="font-style: italic; text-indent: 80px; color:blanchedalmond;">
+            <h1 style="font-size: 45px; font-style: italic; text-indent: 80px; color:blanchedalmond;">Sleepyhead</h1>
+        </nav>
+        <div style="text-align: center;" class="messages">
+            {% with messages = get_flashed_messages() %}
+                {%if messages %}
+                    {% for m in messages %}
+                        <h4>{{m}}</h4>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        <div style="display:grid; color:blanchedalmond;">
+            <div style="grid-column-start: 2; grid-column-end:2; ">
+                <h1 style="font-style: italic; ">Techniques to Help Sleep</h1>
+                <table style="border-collapse: collapse; border: 5px dashed blanchedalmond;">
+                    <th style="border: 1px dotted blanchedalmond;"><h3>Name</h3></th>
+                    <th style="border: 1px dotted blanchedalmond;"><h3>Type</h3></th>
+                    <th style="border: 1px dotted blanchedalmond;"><h3>Comments</h3></th>
+                    <th style="border: 1px dotted blanchedalmond;"><h3>Rating</h3></th>
+                    {% for t in all_tips %}
+                    <tr>
+                            <td style="border: 1px dotted blanchedalmond; padding:5px;">{{t.name}}</td>
+                            <td style="border: 1px dotted blanchedalmond; padding:5px;">{{t.type}}</td>
+                            <td style="border: 1px dotted blanchedalmond; padding:5px;">{{t.comments}}</td>
+                            <td style="border: 1px dotted blanchedalmond; padding:5px;">{{t.rating}}</td>
+                            <input type="hidden" name="{{session[user_id]}}" value="{{session[user_id]}}">
+                        </tr>
+                        {% endfor %}
+                    </table>
+            </div>
+            <div style="grid-column-start: 3; grid-column-end:3; display:block; font-style: italic;">
+                <a style="color:blanchedalmond;" href="/newtip"><h1 style="margin-left:10px;">Add a Sleep Tip</h1></a>
+                <a style="color:blanchedalmond;" href="/viewuser"><h1 style="margin-left:10px;">View Your Profile</h1></a>
+                <a style="color:blanchedalmond;" href="/logout"><h1 style="margin-left:10px;">Logout</h1></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

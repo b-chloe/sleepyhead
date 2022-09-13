@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Tip</title>
+</head>
+<body style="background: rgb(69,44,99);
+background: linear-gradient(90deg, rgba(69,44,99,1) 0%, rgba(120,94,120,1) 50%, rgba(158,125,158,1) 100%);">
+    <div style="margin: 0 auto; font-family:Arial, Helvetica, sans-serif">
+        <nav style="font-style: italic; text-indent: 80px; color:blanchedalmond;">
+            <h1 style="font-size: 45px; font-style: italic; text-indent: 80px; color:blanchedalmond;">Sleepyhead</h1>
+        </nav>
+        <div style="display:grid; color:blanchedalmond;">
+            <div style="grid-column-start: 2; grid-column-end:3; ">
+                <h1 style="font-style: italic; ">Add a Sleep Tip</h1>
+                <form style="border-collapse:collapse; border: 5px dashed blanched almond; margin-top: -10px;" action="/add/tip" method="POST">
+                    <label for="name" style="display:block;">What is it?</label>
+                    <input type="text" name="name">
+                    <label for="type" style="display:block;">Type:</label>
+                    <select name="type">
+                        <option value="Herbs">Herbs & Aromatherapy</option>
+                        <option value="Supplements/Vitamins">Vitamins & Supplements</option>
+                        <option value="Podcasts & Audio">Podcasts & Audio</option>
+                        <option value="Guided Meditations & Breathing Exercises"> Meditation & Breathing Exercises</option>
+                    </select>
+                    <label style="display:block;" for="comments">Comments:</label>
+                    <textarea style="font-family:Arial, Helvetica, sans-serif;" name="comments" cols="40" rows="5" >Tell us how you use this technique! For example, if you use chamomile in a tea form, write that here. If there's an on-line guided meditation you use, post the link here.</textarea>
+                    <label style="display:block;" for="rating">Rating</label>
+                    <input type="radio" name="rating" value="Doesn't work. :-(">
+                    <label for="rating">Doesn't work. :-(</label><br>
+                    <input type="radio" name="rating" value="Soothing, but doesn't put me to sleep. :-|">
+                    <label for="rating">Soothing, but doesn't put me to sleep. :-|</label><br>
+                    <input type="radio" name="rating" value="Works sometimes. :-/">
+                    <label for="rating">Works sometimes. :-/</label><br>
+                    <input type="radio" name="rating" value="I use this every night and it puts me to sleep! :-)">
+                    <label for="rating">I use this every night and it puts me to sleep! :-)</label><br>
+                    <input type="hidden" value="{{users_id}}">
+                    <button style="margin: 0 auto; margin-top: 5px; background-color:rgb(69,44,99); border-color:rgb(69,44,99); border-radius: 15%;color:blanchedalmond; height: fit-content; font-size: 15px; font-family: Arial, Helvetica, sans-serif; font-weight:700; font-style: italic;">Add</button>
+                </form>
+            </div>
+            <div style="grid-column-start: 3; grid-column-end:3; display:block; font-style: italic; font-style: italic;">
+                <a href="/dashboard"><h1 style="color:blanchedalmond;">View All Sleep Tips</h1></a>
+                <a style="color:blanchedalmond;" href="/viewprofile"><h1>View Your Profile</h1></a>
+                <a style="color:blanchedalmond;" href="/logout"><h1>Logout</h1></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
